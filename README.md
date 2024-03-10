@@ -8,4 +8,4 @@ required constant updating and storage in the client's database.
 
 ### Final result :
 
-[![Click to watch](doc/Screenshot_18.png)](https://www.youtube.com/watch?v=CBoL_2pau-4 "Click here to watch")
+[![Click to watch](doc/Screenshot_18.png)](https://www.youtube.com/watch?v=ghXippvUnwA "Click here to watch")

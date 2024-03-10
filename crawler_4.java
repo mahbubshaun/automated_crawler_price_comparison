@@ -144,7 +144,7 @@ public class crawler_4 {
                 try {
                     crawler_4 window = new crawler_4();
                     window.frame.setVisible(true);
-                    
+
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -176,7 +176,7 @@ public class crawler_4 {
                     int high = 5000;
 
                     int waits = r.nextInt(high - low) + low;
-                    
+
 
                     String path = new File(".").getCanonicalPath();
                     System.out.println("Application path is: " + path);
@@ -277,8 +277,7 @@ public class crawler_4 {
                     progressBar_2.setMaximum(cash_l.size());
                     progressBar_2.update(progressBar_2.getGraphics());
                     for (int i = 1; i <= cash_l.size(); i++) {
-                        WebElement sh = driver.findElement(By.xpath(
-                                "(//ol[@class='all-stores-list']/li)[" + i + "]//span[@class='allStoreLogo']/img"));
+                        WebElement sh = driver.findElement(By.xpath("(//ol[@class='all-stores-list']/li)[" + i + "]//span[@class='allStoreLogo']/img"));
 
                         System.out.println(sh.getAttribute("alt"));
 
@@ -299,15 +298,14 @@ public class crawler_4 {
                         // WebElement casc =
                         // driver.findElement(By.xpath("(//ol[@class='all-stores-list']/li)["+i+"]//span[@class='allStoreLogo']"));
 
-                        WebElement element = driver.findElement(By.xpath(
-                                "(//ol[@class='all-stores-list']/li)[" + i + "]//span[@class='allStoreLogo']/span"));
+                        WebElement element = driver.findElement(By.xpath("(//ol[@class='all-stores-list']/li)[" + i + "]//span[@class='allStoreLogo']/span"));
                         String text = (String) js.executeScript("return arguments[0].innerHTML;", element);
 
                         String st = text;
 
                         System.out.println("cashback: " + st);
                         st = st.replaceAll("CashCoins", "");
-          
+
                         st = st.replaceAll(",", ".");
                         if (st.contains("%")) {
                             st = st.replaceAll("%", "");
@@ -353,8 +351,7 @@ public class crawler_4 {
                                 ddg.printStackTrace();
                             }
 
-                            String da = String.valueOf(day).concat("/" + String.valueOf(month))
-                                    .concat("/" + String.valueOf(YEAR));
+                            String da = String.valueOf(day).concat("/" + String.valueOf(month)).concat("/" + String.valueOf(YEAR));
                             try {
                                 Connection myConn = null;
 
@@ -366,14 +363,12 @@ public class crawler_4 {
                                 String pass = "test123";
                                 myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                 myStmt = (Statement) myConn.createStatement();
-                                String sql2 = "SELECT ShopNameEx FROM Cashbackdeals WHERE ShopNameEx='"
-                                        + sh.getAttribute("alt") + "'";
+                                String sql2 = "SELECT ShopNameEx FROM Cashbackdeals WHERE ShopNameEx='" + sh.getAttribute("alt") + "'";
                                 myRs = myStmt.executeQuery(sql2);
 
                                 if ((myRs.next())) {
 
-                                    String up = "UPDATE Cashbackdeals  SET CashBack='" + st + "',InfoIfDiff='" + inf
-                                            + "',Date='" + da + "' WHERE ShopNameEx='" + sh.getAttribute("alt") + "'";
+                                    String up = "UPDATE Cashbackdeals  SET CashBack='" + st + "',InfoIfDiff='" + inf + "',Date='" + da + "' WHERE ShopNameEx='" + sh.getAttribute("alt") + "'";
 
                                     int my = myStmt.executeUpdate(up);
 
@@ -388,9 +383,7 @@ public class crawler_4 {
                                     }
                                 } else {
 
-                                    String sql = "INSERT INTO Cashbackdeals (ShopName,ShopNameEx,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Date) VALUES ('"
-                                            + tw + "','" + sh.getAttribute("alt") + "','" + st + "','','','" + inf
-                                            + "','','" + da + "')";
+                                    String sql = "INSERT INTO Cashbackdeals (ShopName,ShopNameEx,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Date) VALUES ('" + tw + "','" + sh.getAttribute("alt") + "','" + st + "','','','" + inf + "','','" + da + "')";
                                     int myRss = myStmt.executeUpdate(sql);
 
                                     if (myRss > 0) {
@@ -464,8 +457,7 @@ public class crawler_4 {
                                 ddg.printStackTrace();
                             }
 
-                            String da = String.valueOf(day).concat("/" + String.valueOf(month))
-                                    .concat("/" + String.valueOf(YEAR));
+                            String da = String.valueOf(day).concat("/" + String.valueOf(month)).concat("/" + String.valueOf(YEAR));
                             try {
                                 Connection myConn = null;
 
@@ -477,14 +469,12 @@ public class crawler_4 {
                                 String pass = "test123";
                                 myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                 myStmt = (Statement) myConn.createStatement();
-                                String sql2 = "SELECT ShopNameEx FROM Cashbackdeals WHERE ShopNameEx='"
-                                        + sh.getAttribute("alt") + "'";
+                                String sql2 = "SELECT ShopNameEx FROM Cashbackdeals WHERE ShopNameEx='" + sh.getAttribute("alt") + "'";
                                 myRs = myStmt.executeQuery(sql2);
 
                                 if ((myRs.next())) {
 
-                                    String up = "UPDATE Cashbackdeals  SET CashBackEuro='" + st + "',InfoIfDiff='" + inf
-                                            + "',Date='" + da + "' WHERE ShopNameEx='" + sh.getAttribute("alt") + "'";
+                                    String up = "UPDATE Cashbackdeals  SET CashBackEuro='" + st + "',InfoIfDiff='" + inf + "',Date='" + da + "' WHERE ShopNameEx='" + sh.getAttribute("alt") + "'";
 
                                     int my = myStmt.executeUpdate(up);
 
@@ -499,9 +489,7 @@ public class crawler_4 {
                                     }
                                 } else {
 
-                                    String sql = "INSERT INTO Cashbackdeals (ShopName,ShopNameEx,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Date) VALUES ('"
-                                            + tw + "','" + sh.getAttribute("alt") + "','','" + st + "','','" + inf
-                                            + "','','" + da + "')";
+                                    String sql = "INSERT INTO Cashbackdeals (ShopName,ShopNameEx,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Date) VALUES ('" + tw + "','" + sh.getAttribute("alt") + "','','" + st + "','','" + inf + "','','" + da + "')";
                                     int myRss = myStmt.executeUpdate(sql);
 
                                     if (myRss > 0) {
@@ -559,8 +547,7 @@ public class crawler_4 {
                     y.printStackTrace(new PrintWriter(sw));
                     String exceptionAsString = sw.toString();
                     System.out.println(exceptionAsString);
-                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!",
-                            JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!", JOptionPane.ERROR_MESSAGE);
 
                     // driver2.close();
                     // driver2.quit();
@@ -713,8 +700,7 @@ public class crawler_4 {
                         // driver_g.findElements(By.xpath("//div[@class='col-12 col-lg-8 col-shop']"));
                         // WebElement gh = driver_g.findElement(By.xpath("/html/body/footer"));
 
-                        List<WebElement> number = driver_g
-                                .findElements(By.xpath("//div[@class='col-12 col-lg-8 col-shop']"));
+                        List<WebElement> number = driver_g.findElements(By.xpath("//div[@class='col-12 col-lg-8 col-shop']"));
 
                         System.out.println("number of listings: " + number.size());
 
@@ -737,8 +723,7 @@ public class crawler_4 {
 
                     }
 
-                    List<WebElement> cash_l = driver_g
-                            .findElements(By.xpath("//div[@class='col-12 col-lg-8 col-shop']"));
+                    List<WebElement> cash_l = driver_g.findElements(By.xpath("//div[@class='col-12 col-lg-8 col-shop']"));
 
                     System.out.println("numer of listing found : " + cash_l.size());
 
@@ -752,8 +737,7 @@ public class crawler_4 {
                     progressBar_3.update(progressBar_3.getGraphics());
                     for (int i = 1; i <= cash_l.size(); i++) {
                         try {
-                            WebElement tit = driver_g.findElement(By.xpath(
-                                    "(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]//div[@class='shop-title']"));
+                            WebElement tit = driver_g.findElement(By.xpath("(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]//div[@class='shop-title']"));
                             m.moveToElement(tit).build().perform();
                             System.out.println(tit.getText());
 
@@ -771,34 +755,28 @@ public class crawler_4 {
                             } catch (Exception fhj) {
 
                             }
-                            WebElement cash = driver_g.findElement(By.xpath(
-                                    "(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]//span[@class='cashback']"));
+                            WebElement cash = driver_g.findElement(By.xpath("(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]//span[@class='cashback']"));
                             m.moveToElement(cash).build().perform();
                             System.out.println(cash.getText());
 
                             String bon = "";
                             try {
 
-                                WebElement ca_bo = driver_g
-                                        .findElement(By.xpath("(//div[@class='col-12 col-lg-8 col-shop'])[" + i
-                                                + "]//span[@class='cashback-condition']"));
+                                WebElement ca_bo = driver_g.findElement(By.xpath("(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]//span[@class='cashback-condition']"));
                                 bon = ca_bo.getText();
 
                                 bon = bon.replaceAll("\\D+", "");
                             } catch (Exception fg) {
 
                             }
-                            WebElement link = driver_g
-                                    .findElement(By.xpath("(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]/a"));
+                            WebElement link = driver_g.findElement(By.xpath("(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]/a"));
 
                             System.out.println(link.getAttribute("href"));
 
                             String inf = "";
 
                             try {
-                                String bis = driver_g.findElement(By.xpath(
-                                                "(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]//span[@class='prefix']"))
-                                        .getText();
+                                String bis = driver_g.findElement(By.xpath("(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]//span[@class='prefix']")).getText();
 
                                 try {
                                     if (bis.contains("BIS ZU")) {
@@ -815,12 +793,10 @@ public class crawler_4 {
                             }
                             System.out.println(inf);
 
-                            WebElement cash_bon = driver_g.findElement(By.xpath(
-                                    "(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]//span[@class='postfix']"));
+                            WebElement cash_bon = driver_g.findElement(By.xpath("(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]//span[@class='postfix']"));
 
                             System.out.println(cash_bon.getText());
-                            String da = String.valueOf(day).concat("/" + String.valueOf(month))
-                                    .concat("/" + String.valueOf(YEAR));
+                            String da = String.valueOf(day).concat("/" + String.valueOf(month)).concat("/" + String.valueOf(YEAR));
 
                             String cc = cash.getText();
                             if (cc.contains("%")) {
@@ -874,15 +850,12 @@ public class crawler_4 {
                                         myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                         myStmt = (Statement) myConn.createStatement();
 
-                                        String sql2 = "SELECT Link_C FROM Getmore WHERE Link_C ='"
-                                                + link.getAttribute("href") + "'";
+                                        String sql2 = "SELECT Link_C FROM Getmore WHERE Link_C ='" + link.getAttribute("href") + "'";
                                         myRs = myStmt.executeQuery(sql2);
 
                                         if ((myRs.next())) {
 
-                                            String up = "UPDATE Getmore SET CashBack='" + cc + "',Bonus='" + bon
-                                                    + "',InfoIfDiff='" + inf + "',Date='" + da + "' WHERE Link_C='"
-                                                    + link.getAttribute("href") + "'";
+                                            String up = "UPDATE Getmore SET CashBack='" + cc + "',Bonus='" + bon + "',InfoIfDiff='" + inf + "',Date='" + da + "' WHERE Link_C='" + link.getAttribute("href") + "'";
 
                                             int my = myStmt.executeUpdate(up);
 
@@ -895,9 +868,7 @@ public class crawler_4 {
                                                 update(stt);
                                             }
                                         } else {
-                                            String sql = "INSERT INTO Getmore (ShopName,CashBack,CashBackEuro,Bonus,BonusEuro,InfoIfDiff,Link,Link_C,Date) VALUES ('"
-                                                    + tw + "','" + cc + "','','" + bon + "','','" + inf + "','','"
-                                                    + link.getAttribute("href") + "','" + da + "')";
+                                            String sql = "INSERT INTO Getmore (ShopName,CashBack,CashBackEuro,Bonus,BonusEuro,InfoIfDiff,Link,Link_C,Date) VALUES ('" + tw + "','" + cc + "','','" + bon + "','','" + inf + "','','" + link.getAttribute("href") + "','" + da + "')";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -939,9 +910,7 @@ public class crawler_4 {
                                         String pass = "test123";
                                         myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                         myStmt = (Statement) myConn.createStatement();
-                                        String sql = "INSERT INTO Getmore (ShopName,CashBack,Bonus,InfoIfDiff,Link,Date) VALUES ('"
-                                                + tw + "','','" + cc + "','" + inf + "','" + link.getAttribute("href")
-                                                + "','" + da + "')";
+                                        String sql = "INSERT INTO Getmore (ShopName,CashBack,Bonus,InfoIfDiff,Link,Date) VALUES ('" + tw + "','','" + cc + "','" + inf + "','" + link.getAttribute("href") + "','" + da + "')";
                                         int myRss = myStmt.executeUpdate(sql);
 
                                         if (myRss > 0) {
@@ -972,10 +941,7 @@ public class crawler_4 {
                                 }
                             } else {
                                 try {
-                                    String bis = driver_g
-                                            .findElement(By.xpath("(//div[@class='col-12 col-lg-8 col-shop'])[" + i
-                                                    + "]//span[@class='prefix']"))
-                                            .getText();
+                                    String bis = driver_g.findElement(By.xpath("(//div[@class='col-12 col-lg-8 col-shop'])[" + i + "]//span[@class='prefix']")).getText();
 
                                     try {
                                         if (bis.contains("BIS ZU")) {
@@ -1017,15 +983,12 @@ public class crawler_4 {
                                             myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                             myStmt = (Statement) myConn.createStatement();
 
-                                            String sql2 = "SELECT Link_C FROM Getmore WHERE Link_C ='"
-                                                    + link.getAttribute("href") + "'";
+                                            String sql2 = "SELECT Link_C FROM Getmore WHERE Link_C ='" + link.getAttribute("href") + "'";
                                             myRs = myStmt.executeQuery(sql2);
 
                                             if ((myRs.next())) {
 
-                                                String up = "UPDATE Getmore SET CashBack='" + cc + "',Bonus='" + bon
-                                                        + "',InfoIfDiff='" + inf + "',Date='" + da + "' WHERE Link_C='"
-                                                        + link.getAttribute("href") + "'";
+                                                String up = "UPDATE Getmore SET CashBack='" + cc + "',Bonus='" + bon + "',InfoIfDiff='" + inf + "',Date='" + da + "' WHERE Link_C='" + link.getAttribute("href") + "'";
 
                                                 int my = myStmt.executeUpdate(up);
 
@@ -1035,14 +998,11 @@ public class crawler_4 {
 
                                                     t2 = String.valueOf(timestamp2);
 
-                                                    stt = "[" + t2
-                                                            + "] Getmore: Listing already exist so updated the db";
+                                                    stt = "[" + t2 + "] Getmore: Listing already exist so updated the db";
                                                     update(stt);
                                                 }
                                             } else {
-                                                String sql = "INSERT INTO Getmore (ShopName,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Link_C,Date) VALUES ('"
-                                                        + tw + "','" + cc + "','','','" + inf + "','','"
-                                                        + link.getAttribute("href") + "','" + da + "')";
+                                                String sql = "INSERT INTO Getmore (ShopName,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Link_C,Date) VALUES ('" + tw + "','" + cc + "','','','" + inf + "','','" + link.getAttribute("href") + "','" + da + "')";
                                                 int myRss = myStmt.executeUpdate(sql);
 
                                                 if (myRss > 0) {
@@ -1084,9 +1044,7 @@ public class crawler_4 {
                                             String pass = "test123";
                                             myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                             myStmt = (Statement) myConn.createStatement();
-                                            String sql = "INSERT INTO Getmore (ShopName,CashBack,CashEuro,Bonus,InfoIfDiff,Link,Date) VALUES ('"
-                                                    + tw + "','','" + cc + "','" + bon + "','" + inf + "','"
-                                                    + link.getAttribute("href") + "','" + da + "')";
+                                            String sql = "INSERT INTO Getmore (ShopName,CashBack,CashEuro,Bonus,InfoIfDiff,Link,Date) VALUES ('" + tw + "','','" + cc + "','" + bon + "','" + inf + "','" + link.getAttribute("href") + "','" + da + "')";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -1136,15 +1094,12 @@ public class crawler_4 {
                                             myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                             myStmt = (Statement) myConn.createStatement();
 
-                                            String sql2 = "SELECT Link_C FROM Getmore WHERE Link_C ='"
-                                                    + link.getAttribute("href") + "' ";
+                                            String sql2 = "SELECT Link_C FROM Getmore WHERE Link_C ='" + link.getAttribute("href") + "' ";
                                             myRs = myStmt.executeQuery(sql2);
 
                                             if ((myRs.next())) {
 
-                                                String up = "UPDATE Getmore SET CashBackEuro='" + cc + "',Bonus='" + bon
-                                                        + "',InfoIfDiff='" + inf + "',Date='" + da + "' WHERE Link_C='"
-                                                        + link.getAttribute("href") + "'";
+                                                String up = "UPDATE Getmore SET CashBackEuro='" + cc + "',Bonus='" + bon + "',InfoIfDiff='" + inf + "',Date='" + da + "' WHERE Link_C='" + link.getAttribute("href") + "'";
 
                                                 int my = myStmt.executeUpdate(up);
 
@@ -1153,15 +1108,12 @@ public class crawler_4 {
 
                                                     t2 = String.valueOf(timestamp2);
 
-                                                    stt = "[" + t2
-                                                            + "] Getmore: Listing already exist for this day, so skipping";
+                                                    stt = "[" + t2 + "] Getmore: Listing already exist for this day, so skipping";
                                                     update(stt);
                                                 }
                                             } else {
 
-                                                String sql = "INSERT INTO Getmore (ShopName,CashBack,CashBackEuro,Bonus,BonusEuro,InfoIfDiff,Link,Link_C,Date) VALUES ('"
-                                                        + tw + "','','" + cc + "','" + bon + "','','" + inf + "','','"
-                                                        + link.getAttribute("href") + "','" + da + "')";
+                                                String sql = "INSERT INTO Getmore (ShopName,CashBack,CashBackEuro,Bonus,BonusEuro,InfoIfDiff,Link,Link_C,Date) VALUES ('" + tw + "','','" + cc + "','" + bon + "','','" + inf + "','','" + link.getAttribute("href") + "','" + da + "')";
                                                 int myRss = myStmt.executeUpdate(sql);
 
                                                 if (myRss > 0) {
@@ -1203,9 +1155,7 @@ public class crawler_4 {
                                             String pass = "test123";
                                             myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                             myStmt = (Statement) myConn.createStatement();
-                                            String sql = "INSERT INTO Getmore (ShopName,CashBack,CashBackEuro,Bonus,BonusEuro,InfoIfDiff,Link,Date) VALUES ('"
-                                                    + tw + "','','','" + bon + "','" + cc + "','" + inf + "','"
-                                                    + link.getAttribute("href") + "','" + da + "')";
+                                            String sql = "INSERT INTO Getmore (ShopName,CashBack,CashBackEuro,Bonus,BonusEuro,InfoIfDiff,Link,Date) VALUES ('" + tw + "','','','" + bon + "','" + cc + "','" + inf + "','" + link.getAttribute("href") + "','" + da + "')";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -1272,8 +1222,7 @@ public class crawler_4 {
                     y.printStackTrace(new PrintWriter(sw));
                     String exceptionAsString = sw.toString();
                     System.out.println(exceptionAsString);
-                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!",
-                            JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!", JOptionPane.ERROR_MESSAGE);
 
                     // driver2.close();
                     // driver2.quit();
@@ -1512,21 +1461,16 @@ public class crawler_4 {
                                 System.out.println("number of listings: " + number.size());
 
                                 // m.moveToElement(number.get(number.size()-1)).build().perform();
-                                wait2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                                        By.xpath("//div[@class='merchants-container card-list']//h2")));
-                                String tot = driver_s
-                                        .findElement(By.xpath("//div[@class='merchants-container card-list']//h2"))
-                                        .getText();
+                                wait2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='merchants-container card-list']//h2")));
+                                String tot = driver_s.findElement(By.xpath("//div[@class='merchants-container card-list']//h2")).getText();
 
                                 tot = tot.replaceAll("\\D+", "");
 
                                 System.out.println("current listing num is: " + tot);
                                 if (number.size() != Integer.parseInt(tot)) {
                                     try {
-                                        wait2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                                                By.xpath("(//shoop-button)[2]/button")));
-                                        WebElement element1 = wait1.until(ExpectedConditions
-                                                .elementToBeClickable(By.xpath("(//shoop-button)[2]/button")));
+                                        wait2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("(//shoop-button)[2]/button")));
+                                        WebElement element1 = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("(//shoop-button)[2]/button")));
 
                                         element1.click();
 
@@ -1543,12 +1487,10 @@ public class crawler_4 {
                             List<WebElement> mer_l = driver_s.findElements(By.xpath("//merchant-item"));
 
                             System.out.println("total listing found: " + mer_l.size());
-                            String da = String.valueOf(day).concat("/" + String.valueOf(month))
-                                    .concat("/" + String.valueOf(YEAR));
+                            String da = String.valueOf(day).concat("/" + String.valueOf(month)).concat("/" + String.valueOf(YEAR));
 
                             for (int f = 1; f <= mer_l.size(); f++) {
-                                WebElement tit = driver_s
-                                        .findElement(By.xpath("(//merchant-item)[" + f + "]//a[@class='link big']"));
+                                WebElement tit = driver_s.findElement(By.xpath("(//merchant-item)[" + f + "]//a[@class='link big']"));
 
                                 String ter = tit.getText();
 
@@ -1568,13 +1510,11 @@ public class crawler_4 {
 
                                 }
 
-                                WebElement li = driver_s
-                                        .findElement(By.xpath("(//merchant-item)[" + f + "]//a[@class='link big']"));
+                                WebElement li = driver_s.findElement(By.xpath("(//merchant-item)[" + f + "]//a[@class='link big']"));
 
                                 li.getAttribute("href");
 
-                                WebElement cas = driver_s.findElement(
-                                        By.xpath("(//merchant-item)[" + f + "]//div[@data-e2e-name='cashbackTeaser']"));
+                                WebElement cas = driver_s.findElement(By.xpath("(//merchant-item)[" + f + "]//div[@data-e2e-name='cashbackTeaser']"));
 
                                 String cas_s = cas.getText();
 
@@ -1640,14 +1580,11 @@ public class crawler_4 {
                                         myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                         myStmt = (Statement) myConn.createStatement();
 
-                                        String sql2 = "SELECT ShopName,Link FROM Shopde WHERE Shopname = '" + ter
-                                                + "' and Link_C ='" + li.getAttribute("href") + "'";
+                                        String sql2 = "SELECT ShopName,Link FROM Shopde WHERE Shopname = '" + ter + "' and Link_C ='" + li.getAttribute("href") + "'";
                                         myRsss = myStmt.executeQuery(sql2);
 
                                         if ((myRsss.next())) {
-                                            String sql = "UPDATE Shopde SET ShopName='" + ter + "',CashBack='" + cas_s
-                                                    + "',InfoIfDiff='" + inf + "',Link_C='" + li.getAttribute("href")
-                                                    + "',Date='" + da + "' WHERE ShopName='" + ter + "' ";
+                                            String sql = "UPDATE Shopde SET ShopName='" + ter + "',CashBack='" + cas_s + "',InfoIfDiff='" + inf + "',Link_C='" + li.getAttribute("href") + "',Date='" + da + "' WHERE ShopName='" + ter + "' ";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -1655,16 +1592,12 @@ public class crawler_4 {
 
                                                 String t2 = String.valueOf(timestamp2);
 
-                                                String stt = "[" + t2
-                                                        + "] Shoop: Listing already exist so updated the db";
+                                                String stt = "[" + t2 + "] Shoop: Listing already exist so updated the db";
                                                 update(stt);
                                             }
                                         } else {
 
-                                            String sql = "INSERT INTO Shopde (ShopName,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Link_C,Date) VALUES ('"
-                                                    + ter + "','" + cas_s + "','','','" + inf
-                                                    + "','https://www.shoop.de/invite/Bvjjdq2nyj/','"
-                                                    + li.getAttribute("href") + "','" + da + "')";
+                                            String sql = "INSERT INTO Shopde (ShopName,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Link_C,Date) VALUES ('" + ter + "','" + cas_s + "','','','" + inf + "','https://www.shoop.de/invite/Bvjjdq2nyj/','" + li.getAttribute("href") + "','" + da + "')";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -1738,15 +1671,11 @@ public class crawler_4 {
                                         myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                         myStmt = (Statement) myConn.createStatement();
 
-                                        String sql2 = "SELECT ShopName,Link_C FROM Shopde WHERE Shopname = '" + ter
-                                                + "' and Link_C ='" + li.getAttribute("href") + "' ";
+                                        String sql2 = "SELECT ShopName,Link_C FROM Shopde WHERE Shopname = '" + ter + "' and Link_C ='" + li.getAttribute("href") + "' ";
                                         myRsss = myStmt.executeQuery(sql2);
 
                                         if ((myRsss.next())) {
-                                            String sql = "UPDATE Shopde SET ShopName='" + ter + "',CashBackEuro='"
-                                                    + cas_s + "',InfoIfDiff='" + inf + "',Link_C='"
-                                                    + li.getAttribute("href") + "',Date='" + da + "' WHERE ShopName='"
-                                                    + ter + "' ";
+                                            String sql = "UPDATE Shopde SET ShopName='" + ter + "',CashBackEuro='" + cas_s + "',InfoIfDiff='" + inf + "',Link_C='" + li.getAttribute("href") + "',Date='" + da + "' WHERE ShopName='" + ter + "' ";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -1754,16 +1683,12 @@ public class crawler_4 {
 
                                                 String t2 = String.valueOf(timestamp2);
 
-                                                String stt = "[" + t2
-                                                        + "] Shoop: Listing already exist for this day, so skipping";
+                                                String stt = "[" + t2 + "] Shoop: Listing already exist for this day, so skipping";
                                                 update(stt);
                                             }
                                         } else {
 
-                                            String sql = "INSERT INTO Shopde (ShopName,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Link_C,Date) VALUES ('"
-                                                    + ter + "','','" + cas_s + "','','" + inf
-                                                    + "','https://www.shoop.de/invite/Bvjjdq2nyj/','"
-                                                    + li.getAttribute("href") + "','" + da + "')";
+                                            String sql = "INSERT INTO Shopde (ShopName,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Link_C,Date) VALUES ('" + ter + "','','" + cas_s + "','','" + inf + "','https://www.shoop.de/invite/Bvjjdq2nyj/','" + li.getAttribute("href") + "','" + da + "')";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -1806,8 +1731,7 @@ public class crawler_4 {
 
                     progressBar_4.setValue(ar.size());
                     progressBar_4.update(progressBar_4.getGraphics());
-                    String da = String.valueOf(day).concat("/" + String.valueOf(month))
-                            .concat("/" + String.valueOf(YEAR));
+                    String da = String.valueOf(day).concat("/" + String.valueOf(month)).concat("/" + String.valueOf(YEAR));
                     try {
                         Connection myConn = null;
 
@@ -1854,12 +1778,8 @@ public class crawler_4 {
                             }
                         }
                         try {
-                            waitsS.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By
-                                    .xpath("//div[@class='voucher-count text-highlight big ng-star-inserted']/span")));
-                            String vou = driver_s
-                                    .findElement(((By.xpath(
-                                            "//div[@class='voucher-count text-highlight big ng-star-inserted']/span"))))
-                                    .getText();
+                            waitsS.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='voucher-count text-highlight big ng-star-inserted']/span")));
+                            String vou = driver_s.findElement(((By.xpath("//div[@class='voucher-count text-highlight big ng-star-inserted']/span")))).getText();
 
                             vou = vou.replaceAll("\\D+", "");
                             try {
@@ -1874,8 +1794,7 @@ public class crawler_4 {
                                 myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                 myStmt = (Statement) myConn.createStatement();
 
-                                String sql2 = "UPDATE Shopde SET Bonus='" + vou + "'  WHERE Link_C='" + li.get(i)
-                                        + "' AND Date='" + da + "'";
+                                String sql2 = "UPDATE Shopde SET Bonus='" + vou + "'  WHERE Link_C='" + li.get(i) + "' AND Date='" + da + "'";
                                 int upa = myStmt.executeUpdate(sql2);
 
                                 if (upa > 0) {
@@ -1934,8 +1853,7 @@ public class crawler_4 {
                     y.printStackTrace(new PrintWriter(sw));
                     String exceptionAsString = sw.toString();
                     System.out.println(exceptionAsString);
-                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!",
-                            JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!", JOptionPane.ERROR_MESSAGE);
 
                     // driver2.close();
                     // driver2.quit();
@@ -2161,8 +2079,7 @@ public class crawler_4 {
 
                             if (capa == true) {
                                 if (driver_i.findElement(By.xpath("//iframe[@onload]")).isDisplayed()) {
-                                    wait2.until(ExpectedConditions
-                                            .invisibilityOfElementLocated(By.xpath("//iframe[@onload]")));
+                                    wait2.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//iframe[@onload]")));
 
                                     Thread.sleep(10000);
                                     driver_i.get(ar3.get(j));
@@ -2190,16 +2107,13 @@ public class crawler_4 {
                              *
                              * }
                              */
-                            List<WebElement> mer_l = driver_i
-                                    .findElements(By.xpath("//tbody[@data-ig-allmerchant-block]/tr"));
+                            List<WebElement> mer_l = driver_i.findElements(By.xpath("//tbody[@data-ig-allmerchant-block]/tr"));
 
                             System.out.println("total listing found: " + mer_l.size());
-                            String da = String.valueOf(day).concat("/" + String.valueOf(month))
-                                    .concat("/" + String.valueOf(YEAR));
+                            String da = String.valueOf(day).concat("/" + String.valueOf(month)).concat("/" + String.valueOf(YEAR));
 
                             for (int f = 1; f <= mer_l.size(); f++) {
-                                WebElement tit = driver_i.findElement(
-                                        By.xpath("(//tbody[@data-ig-allmerchant-block]/tr)[" + f + "]/td[1]/a"));
+                                WebElement tit = driver_i.findElement(By.xpath("(//tbody[@data-ig-allmerchant-block]/tr)[" + f + "]/td[1]/a"));
 
                                 tit.getText();
 
@@ -2221,8 +2135,7 @@ public class crawler_4 {
 
                                 }
 
-                                WebElement li = driver_i.findElement(
-                                        By.xpath("(//tbody[@data-ig-allmerchant-block]/tr)[" + f + "]/td[1]/a"));
+                                WebElement li = driver_i.findElement(By.xpath("(//tbody[@data-ig-allmerchant-block]/tr)[" + f + "]/td[1]/a"));
 
                                 li.getAttribute("href");
 
@@ -2230,15 +2143,12 @@ public class crawler_4 {
                                 String up = "";
                                 try {
                                     try {
-                                        up = driver_i.findElement(By.xpath("(//tbody[@data-ig-allmerchant-block]/tr)["
-                                                + f + "]/td[2]/span/span[@class='up_to_txt']")).getText();
+                                        up = driver_i.findElement(By.xpath("(//tbody[@data-ig-allmerchant-block]/tr)[" + f + "]/td[2]/span/span[@class='up_to_txt']")).getText();
 
                                     } catch (Exception fh) {
 
                                     }
-                                    WebElement cas = driver_i
-                                            .findElement(By.xpath("(//tbody[@data-ig-allmerchant-block]/tr)[" + f
-                                                    + "]/td[2]/span/span[@class='cashback_rate']"));
+                                    WebElement cas = driver_i.findElement(By.xpath("(//tbody[@data-ig-allmerchant-block]/tr)[" + f + "]/td[2]/span/span[@class='cashback_rate']"));
 
                                     // cas_ss = cas.getText();
                                     cas_ss = up.concat(" " + cas.getText());
@@ -2290,8 +2200,7 @@ public class crawler_4 {
                                     }
 
                                     try {
-                                        WebElement cp = driver_i.findElement(By.xpath(
-                                                "(//tbody[@data-ig-allmerchant-block]/tr)[" + f + "]/td[3]/span"));
+                                        WebElement cp = driver_i.findElement(By.xpath("(//tbody[@data-ig-allmerchant-block]/tr)[" + f + "]/td[3]/span"));
                                         cp_s = cp.getText();
                                     } catch (Exception d) {
 
@@ -2310,16 +2219,12 @@ public class crawler_4 {
                                         myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                         myStmt = (Statement) myConn.createStatement();
 
-                                        String sql2 = "SELECT ShopName,Link_C FROM  igraal WHERE ShopName='" + tt
-                                                + "' and Link_C='" + li.getAttribute("href") + "'";
+                                        String sql2 = "SELECT ShopName,Link_C FROM  igraal WHERE ShopName='" + tt + "' and Link_C='" + li.getAttribute("href") + "'";
                                         myRs = myStmt.executeQuery(sql2);
 
                                         if ((myRs.next())) {
 
-                                            String sql = "UPDATE igraal SET ShopName='" + tt + "',CashBack='" + cas_ss
-                                                    + "',Bonus='" + cp_s + "',InfoIfDiff='" + inf + "',Date='" + da
-                                                    + "' WHERE ShopName='" + tt + "' and Link_C='"
-                                                    + li.getAttribute("href") + "' ";
+                                            String sql = "UPDATE igraal SET ShopName='" + tt + "',CashBack='" + cas_ss + "',Bonus='" + cp_s + "',InfoIfDiff='" + inf + "',Date='" + da + "' WHERE ShopName='" + tt + "' and Link_C='" + li.getAttribute("href") + "' ";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -2328,16 +2233,12 @@ public class crawler_4 {
 
                                                 String t2 = String.valueOf(timestamp2);
 
-                                                String stt = "[" + t2
-                                                        + "] Igraal: Listing already exist so updated the db";
+                                                String stt = "[" + t2 + "] Igraal: Listing already exist so updated the db";
                                                 update(stt);
                                             }
                                         } else {
 
-                                            String sql = "INSERT INTO igraal (ShopName,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Link_C,Date) VALUES ('"
-                                                    + tt + "','" + cas_ss + "','','" + cp_s + "','" + inf
-                                                    + "','https://de.igraal.com/?werber=AG_60818c8e6e0de','"
-                                                    + li.getAttribute("href") + "','" + da + "')";
+                                            String sql = "INSERT INTO igraal (ShopName,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Link_C,Date) VALUES ('" + tt + "','" + cas_ss + "','','" + cp_s + "','" + inf + "','https://de.igraal.com/?werber=AG_60818c8e6e0de','" + li.getAttribute("href") + "','" + da + "')";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -2374,8 +2275,7 @@ public class crawler_4 {
 
                                     }
                                     try {
-                                        WebElement cp = driver_i.findElement(By.xpath(
-                                                "(//tbody[@data-ig-allmerchant-block]/tr)[" + f + "]/td[3]/span"));
+                                        WebElement cp = driver_i.findElement(By.xpath("(//tbody[@data-ig-allmerchant-block]/tr)[" + f + "]/td[3]/span"));
                                         cp_s = cp.getText();
                                     } catch (Exception d) {
 
@@ -2418,16 +2318,12 @@ public class crawler_4 {
                                         myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                         myStmt = (Statement) myConn.createStatement();
 
-                                        String sql2 = "SELECT ShopName,Link_C FROM  igraal WHERE ShopName='" + tt
-                                                + "' and Link_C='" + li.getAttribute("href") + "'";
+                                        String sql2 = "SELECT ShopName,Link_C FROM  igraal WHERE ShopName='" + tt + "' and Link_C='" + li.getAttribute("href") + "'";
                                         myRs = myStmt.executeQuery(sql2);
 
                                         if ((myRs.next())) {
 
-                                            String sql = "UPDATE igraal SET ShopName='" + tt + "',CashBackEuro='"
-                                                    + cas_ss + "',Bonus='" + cp_s + "',InfoIfDiff='" + inf
-                                                    + "',Link_C='" + li.getAttribute("href") + "',Date='" + da
-                                                    + "' WHERE ShopName='" + tt + "' ";
+                                            String sql = "UPDATE igraal SET ShopName='" + tt + "',CashBackEuro='" + cas_ss + "',Bonus='" + cp_s + "',InfoIfDiff='" + inf + "',Link_C='" + li.getAttribute("href") + "',Date='" + da + "' WHERE ShopName='" + tt + "' ";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -2440,10 +2336,7 @@ public class crawler_4 {
                                             }
                                         } else {
 
-                                            String sql = "INSERT INTO igraal (ShopName,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Link_C,Date) VALUES ('"
-                                                    + tt + "','','" + cas_ss + "','" + cp_s + "','" + inf
-                                                    + "','https://de.igraal.com/?werber=AG_60818c8e6e0de','"
-                                                    + li.getAttribute("href") + "','" + da + "')";
+                                            String sql = "INSERT INTO igraal (ShopName,CashBack,CashBackEuro,Bonus,InfoIfDiff,Link,Link_C,Date) VALUES ('" + tt + "','','" + cas_ss + "','" + cp_s + "','" + inf + "','https://de.igraal.com/?werber=AG_60818c8e6e0de','" + li.getAttribute("href") + "','" + da + "')";
                                             int myRss = myStmt.executeUpdate(sql);
 
                                             if (myRss > 0) {
@@ -2510,8 +2403,7 @@ public class crawler_4 {
                     y.printStackTrace(new PrintWriter(sw));
                     String exceptionAsString = sw.toString();
                     System.out.println(exceptionAsString);
-                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!",
-                            JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!", JOptionPane.ERROR_MESSAGE);
 
                     // driver2.close();
                     // driver2.quit();
@@ -2653,8 +2545,7 @@ public class crawler_4 {
                     }
                     Actions m = new Actions(driver_g);
 
-                    String da = String.valueOf(day).concat("/" + String.valueOf(month))
-                            .concat("/" + String.valueOf(YEAR));
+                    String da = String.valueOf(day).concat("/" + String.valueOf(month)).concat("/" + String.valueOf(YEAR));
                     try {
                         Connection myConn = null;
 
@@ -2691,13 +2582,11 @@ public class crawler_4 {
                         driver_g.get(li_g.get(i));
 
                         try {
-                            WebElement tit = wait1.until(ExpectedConditions
-                                    .elementToBeClickable((By.xpath("//a[@class='recommend-product']"))));
+                            WebElement tit = wait1.until(ExpectedConditions.elementToBeClickable((By.xpath("//a[@class='recommend-product']"))));
 
                             tit.click();
 
-                            wait1.until(ExpectedConditions
-                                    .visibilityOfElementLocated(By.xpath("//input[@id='offer-recommend-link']")));
+                            wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='offer-recommend-link']")));
 
                             WebElement lia = driver_g.findElement(By.xpath("//input[@id='offer-recommend-link']"));
 
@@ -2751,8 +2640,7 @@ public class crawler_4 {
                                     myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                     myStmt = (Statement) myConn.createStatement();
 
-                                    String sql2 = "UPDATE Getmore SET Link='" + lo + "' WHERE Link_C='" + li_g.get(i)
-                                            + "'";
+                                    String sql2 = "UPDATE Getmore SET Link='" + lo + "' WHERE Link_C='" + li_g.get(i) + "'";
                                     int myb = myStmt.executeUpdate(sql2);
 
                                     if (myb > 0) {
@@ -2805,8 +2693,7 @@ public class crawler_4 {
                     y.printStackTrace(new PrintWriter(sw));
                     String exceptionAsString = sw.toString();
                     System.out.println(exceptionAsString);
-                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!",
-                            JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!", JOptionPane.ERROR_MESSAGE);
 
                     // driver2.close();
                     // driver2.quit();
@@ -2952,8 +2839,7 @@ public class crawler_4 {
                         }
                     }
 
-                    String da = String.valueOf(day).concat("/" + String.valueOf(month))
-                            .concat("/" + String.valueOf(YEAR));
+                    String da = String.valueOf(day).concat("/" + String.valueOf(month)).concat("/" + String.valueOf(YEAR));
                     try {
                         Connection myConn = null;
 
@@ -3001,8 +2887,7 @@ public class crawler_4 {
                             driver.findElement(By.xpath("//div[@id='searchList']/ul/li[1]/a[1]")).click();
                             Thread.sleep(2000);
 
-                            wait1.until(ExpectedConditions
-                                    .visibilityOfElementLocated(By.xpath("//input[@id='store-link']")));
+                            wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='store-link']")));
 
                             WebElement lfh = driver.findElement(By.xpath("//div[@id='searchList']/ul/li[1]/a[1]"));
 
@@ -3024,8 +2909,7 @@ public class crawler_4 {
                                 myConn = (Connection) DriverManager.getConnection(dburl, user, pass);
                                 myStmt = (Statement) myConn.createStatement();
 
-                                String sql2 = "UPDATE Cashbackdeals SET Link='" + fina + "' WHERE ShopNameEx='"
-                                        + li_c.get(i) + "'";
+                                String sql2 = "UPDATE Cashbackdeals SET Link='" + fina + "' WHERE ShopNameEx='" + li_c.get(i) + "'";
                                 int myb = myStmt.executeUpdate(sql2);
 
                                 if (myb > 0) {
@@ -3073,8 +2957,7 @@ public class crawler_4 {
                     y.printStackTrace(new PrintWriter(sw));
                     String exceptionAsString = sw.toString();
                     System.out.println(exceptionAsString);
-                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!",
-                            JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!", JOptionPane.ERROR_MESSAGE);
 
                     // driver2.close();
                     // driver2.quit();
@@ -3202,8 +3085,7 @@ public class crawler_4 {
                     y.printStackTrace(new PrintWriter(sw));
                     String exceptionAsString = sw.toString();
                     System.out.println(exceptionAsString);
-                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!",
-                            JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "" + exceptionAsString + "", "ERROR!", JOptionPane.ERROR_MESSAGE);
 
                     // driver2.close();
                     // driver2.quit();
@@ -3290,7 +3172,7 @@ public class crawler_4 {
             // System.out.println(ar2.get(y));
         }
     }
-    
+
     public static BufferedImage crop(double amount, String ima) throws IOException {
         BufferedImage originalImage = ImageIO.read(new File(ima));
         int height = originalImage.getHeight();
@@ -3318,8 +3200,7 @@ public class crawler_4 {
 
         File direc = fw.getDefaultDirectory();
         // System.out.println(fw.getDefaultDirectory());
-        java.awt.Image imgSmall = croppedImage.getScaledInstance(targetWidth, targetHeight,
-                java.awt.Image.SCALE_SMOOTH);
+        java.awt.Image imgSmall = croppedImage.getScaledInstance(targetWidth, targetHeight, java.awt.Image.SCALE_SMOOTH);
 
         BufferedImage bufferedImage = convertToBufferedImage(imgSmall);
 
@@ -3336,8 +3217,7 @@ public class crawler_4 {
     }
 
     public static BufferedImage convertToBufferedImage(java.awt.Image image) {
-        BufferedImage newImage = new BufferedImage(image.getWidth(null), image.getHeight(null),
-                BufferedImage.TYPE_INT_ARGB);
+        BufferedImage newImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = newImage.createGraphics();
         g.drawImage(image, 0, 0, null);
         g.dispose();
@@ -3396,8 +3276,7 @@ public class crawler_4 {
                         String pageUrl = url;
 
                         try {
-                            FileInputStream source = new FileInputStream(
-                                    new File(path + "\\chromedriver\\js\\delete.txt"));
+                            FileInputStream source = new FileInputStream(new File(path + "\\chromedriver\\js\\delete.txt"));
                             sc = new Scanner(source);
                             String js_TxtFile = "";
                             while (sc.hasNext()) {
@@ -3420,12 +3299,10 @@ public class crawler_4 {
                             String responseToken = service.solveCaptcha();
                             System.out.println("The response token is: " + responseToken);
 
-                            js2.executeScript("document.getElementById('g-recaptcha-response').innerHTML='"
-                                    + responseToken + "';");
+                            js2.executeScript("document.getElementById('g-recaptcha-response').innerHTML='" + responseToken + "';");
 
                             Thread.sleep(3000);
-                            FileInputStream source = new FileInputStream(
-                                    new File(path + "\\chromedriver\\js\\JsFile2.txt"));
+                            FileInputStream source = new FileInputStream(new File(path + "\\chromedriver\\js\\JsFile2.txt"));
                             sc2 = new Scanner(source);
                             String js_TxtFile = "";
                             while (sc2.hasNext()) {
@@ -3564,8 +3441,7 @@ public class crawler_4 {
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(lblNewLabel);
 
-        JScrollPane scrollPane = new JScrollPane(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        JScrollPane scrollPane = new JScrollPane(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         scrollPane.setBounds(10, 366, 641, 102);
         frame.getContentPane().add(scrollPane);
         text = new JTextArea();
@@ -4130,8 +4006,7 @@ public class crawler_4 {
                     // options);
                     driver2 = new ChromeDriver(options2);
 
-                    driver2.get(
-                            "https://stackoverflow.com/users/signup?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent");
+                    driver2.get("https://stackoverflow.com/users/signup?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent");
 
                     driver2.findElement(By.xpath("/html/body/div[4]/div[2]/div/div[2]/div[2]/button[1]")).click();
 
